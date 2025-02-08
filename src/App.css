@@ -1,8 +1,29 @@
+html, body, #root {
+  background-color: #454444;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #454444;
+}
+
+body {
+  
+  background-color: #454444;
+  
+
+}
+
+.main-layout{
+  flex-direction: row;
+  background-color: #454444;
 }
 
 .logo {
@@ -17,6 +38,15 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+
+.divider {
+  width: 100%;
+  height: 2px; 
+  background-color: black; 
+  margin: 15px 0; 
+}
+
+
 
 @keyframes logo-spin {
   from {
@@ -40,3 +70,5 @@
 .read-the-docs {
   color: #888;
 }
+
+

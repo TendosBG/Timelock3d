@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ConnectButton from "./ConnectButton.tsx";
 import '../styles/Sidebar.css';
 
-export default function Sidebar() {
+export default function LeftSidebar() {
     const [menuItems] = useState([
         { name: "Home", icon: " 🏠", path: "/" },
         { name: "Profile", icon: " 👤", path: "/profile" },
@@ -10,7 +10,7 @@ export default function Sidebar() {
     ]);
 
     return (
-        <div className="sidebar">
+        <div className="zidebar">
             <ConnectButton/>
 
             <nav className="menu">

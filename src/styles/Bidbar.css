@@ -1,0 +1,42 @@
+/* Right Sidebar (Auction Section) */
+.bidbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px; /* Adjust width if needed */
+    height: 100vh; /* Full viewport height */
+    background-color: #181A1E;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    overflow-y: auto; /* Enables scrolling when content exceeds available space */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #ffcc00 #181A1E; /* Firefox custom scrollbar */
+
+    
+}
+
+
+/* Custom Scrollbar for WebKit Browsers (Chrome, Edge, Safari) */
+.bidbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.bidbar::-webkit-scrollbar-track {
+    background: #181A1E;
+}
+
+.bidbar::-webkit-scrollbar-thumb {
+    background-color: #ffcc00;
+    border-radius: 4px;
+}
+
+/* Ensures auction items are stacked properly */
+.auction-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

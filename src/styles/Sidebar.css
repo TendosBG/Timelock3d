@@ -1,43 +1,51 @@
-.sidebar {
+.zidebar {
     position: fixed;
+    
     top: 0;
     left: 0;
-    width: 300px;
+    width: 270px;
     height: 100vh;
-    background-color: #111;
-    color: white;
+    background-color: #181A1E; /* Couleur de fond de la sidebar */
+    color: white; /* Texte blanc pour contraster avec le fond sombre */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
-
+    
 }
 
-
-.sidebar button {
-    width: 90%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
+.zidebar button {
+    width: 100%;
+    background-color: #181A1E; /* Fond des boutons = fond de la sidebar */
+    color: white; /* Texte des boutons en blanc */
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pour espacer le texte et la flèche */
+    
+    position: relative;
+    border-radius: 0; /* Assure que les boutons ont des bords droits */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    margin-bottom: 10px; /* Ajoute un petit espacement entre les boutons */
 }
 
-.sidebar button:hover {
-    background-color: #0056b3;
+.zidebar button:hover {
+    opacity: 0.7; /* Voile d'opacité au survol */
+}
+
+.zidebar button::after {
+    content: '→'; 
+    font-size: 14px;
+    color: white;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 16px;
     margin-top: 30px;
 }
-
 
 .menu-item {
     width: 100%;
@@ -47,10 +55,9 @@
     gap: 12px;
     background-color: transparent;
     border: none;
-    color: white;
+    color: white; /* Texte des items en blanc */
     text-align: left;
     font-size: 18px;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -64,4 +71,12 @@
 
 .text {
     font-size: 16px;
+}
+
+w3m-button {
+    font-size: 10px !important;
+    border-radius: 4px !important; 
+    min-width: 50px !important; 
+    max-width: 80px !important;
+    margin: 10px;
 }
