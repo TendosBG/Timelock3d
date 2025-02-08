@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "web3": "^4.16.0",
+    "web3modal-web3js": "^0.1.0-alpha.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",

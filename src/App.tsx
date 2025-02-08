@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+    useWeb3ModalTheme,
+    createWeb3Modal,
+    defaultConfig,
+} from 'web3modal-web3js/react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const projectId = '76804fd6127cc3b85f7d749c4e53700f';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+const chains = [
+    {
+        chainId: 5611,
+        name: 'opBNB Testnet',
+        currency: 'tBNB',
+        explorerUrl: 'https://opbnbscan.com/',
+        rpcUrl: 'https://opbnb-testnet-rpc.bnbchain.org',
+    }
+];
+
+const web3Config = defaultConfig({
+    metadata: {
+        name: 'TimeLock3d',
+        description: 'Send your memories into time capsules !',
+        url: 'https://www.bnbchain.org/en',
+        icons: ['https://avatars.githubusercontent.com/u/37784886'],
+    },
+    defaultChainId: 97,
+    rpcUrl: 'https://data-seed-prebsc-1-s3.bnbchain.org:8545/',
+});
+
+// 3. Create modal
+createWeb3Modal({
+    web3Config,
+    chains,
+    projectId,
+    enableAnalytics: true,
+    themeMode: 'light',
+    themeVariables: {
+        '--w3m-color-mix': '#00DCFF',
+        '--w3m-color-mix-strength': 20,
+    },
+});
+
+export default function App() {
+    const { themeMode, setThemeMode } = useWeb3ModalTheme();
+
+    return (
+        <>
+            <w3m-button />
+        </>
+    );
 }
-
-export default App
