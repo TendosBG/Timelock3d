@@ -1,26 +1,53 @@
-import { useWeb3Modal } from 'web3modal-web3js/react';
-import { useEffect, useState } from 'react';
+import {
+    useWeb3ModalTheme,
+    createWeb3Modal,
+    defaultConfig,
+} from 'web3modal-web3js/react';
+
+const projectId = '76804fd6127cc3b85f7d749c4e53700f';
+
+
+const chains = [
+    {
+        chainId: 5611,
+        name: 'opBNB Testnet',
+        currency: 'tBNB',
+        explorerUrl: 'https://opbnbscan.com/',
+        rpcUrl: 'https://opbnb-testnet-rpc.bnbchain.org',
+    }
+];
+
+const web3Config = defaultConfig({
+    metadata: {
+        name: 'TimeLock3d',
+        description: 'Send your memories into time capsules !',
+        url: 'https://www.bnbchain.org/en',
+        icons: ['https://avatars.githubusercontent.com/u/37784886'],
+    },
+    defaultChainId: 97,
+    rpcUrl: 'https://data-seed-prebsc-1-s3.bnbchain.org:8545/',
+});
+
+// 3. Create modal
+createWeb3Modal({
+    web3Config,
+    chains,
+    projectId,
+    enableAnalytics: true,
+    themeMode: 'light',
+    themeVariables: {
+        '--w3m-color-mix': '#00DCFF',
+        '--w3m-color-mix-strength': 20,
+    },
+});
 
 export default function ConnectButton() {
-    const { open, isConnected, provider } = useWeb3Modal();
-    const [account, setAccount] = useState<string | null>(null);
-
-    useEffect(() => {
-        if (isConnected && provider) {
-            provider.eth.getAccounts().then((accounts: string[]) => {
-                if (accounts.length > 0) {
-                    setAccount(accounts[0]);
-                }
-            });
-        }
-    }, [isConnected, provider]);
+    const { themeMode, setThemeMode } = useWeb3ModalTheme();
+    setThemeMode('dark');
 
     return (
-        <button
-            onClick={() => open({ connectorId: 'injected' })}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md"
-        >
-            {account ? `Connected: ${account.slice(0, 6)}...${account.slice(-4)}` : "Connect with MetaMask"}
-        </button>
+        <>
+            <w3m-button />
+        </>
     );
 }
