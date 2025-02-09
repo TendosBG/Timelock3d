@@ -1,29 +1,28 @@
-.marketplace {
-    max-width: 1000px; /* Ajuste selon la largeur disponible */
+.collection-container {
+    max-width: 1000px;
+    width: 100%;
     text-align: center;
-    min-height: 100vh; /* Pour qu'elle prenne toute la hauteur */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Center Horizontally */
+    align-items: center;
 
     color: #FFD700;
 
-    /* Centrage horizontal et vertical */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    /* Compensation des sidebars */
-    padding-left: 250px; /* Ajuste selon la largeur de ta sidebar */
+    padding-left: 25%;
     padding-right: 250px;
+
 }
 
-.nft-grid {
+.collection-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
-.nft-card {
+.collection-card {
     width: 200px;
     padding: 15px;
     border-radius: 10px;
@@ -33,22 +32,22 @@
     text-align: center;
 }
 
-.nft-card img {
+.collection-card img {
     width: 100%;
     border-radius: 8px;
 }
 
-.nft-card h2 {
+.collection-card h2 {
     font-size: 18px;
     margin: 10px 0;
 }
 
-.nft-card p {
+.collection-card p {
     font-size: 14px;
     margin: 5px 0;
 }
 
-.nft-card button {
+.collection-card button {
     background-color: #FFD700;
     color: #1e1e1e;
     border: none;
@@ -59,6 +58,6 @@
 
 }
 
-.nft-card button:hover {
+.collection-card button:hover {
     background-color: #ffd900d3;
 }

@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Feed from "./components/Feed"; // Twitter-like feed
+import Feed from "./components/Feed";
 import Profile from "./pages/Profile";
 import LeftSidebar from "./components/LeftSidebar";
 import RightSidebar from "./components/RightSideBar";
 import { AuthProvider } from "./context/AuthContext";
 import { useState } from "react";
 import Marketplace from "./pages/Marketplace.tsx";
+import Collections from "./pages/Collections.tsx";
 
 function App() {
   const [auctions, setAuctions] = useState([
@@ -32,6 +33,7 @@ function App() {
               <Route path="/" element={<Feed />} /> 
               <Route path="/profile" element={<Profile />} />
               <Route path="/settings" element={<Profile />} />
+                <Route path="/collections" element={<Collections />} />
               <Route path="/marketplace" element={<Marketplace />} />
             </Routes>
           </div>

@@ -11,7 +11,7 @@ export default function LeftSidebar() {
         { name: "🏠 Home", path: "/" },
         { name: "👤 Profile", path: "/profile" }, 
         { name: "🛒 Marketplace", path: "/marketplace" },
-        { name: "🖼 Collection", path: "/collection" },
+        { name: "🖼 Collection", path: "/collections" },
         { name: "⚙️ Settings", path: "/settings" },
         { name: "❓ Help", path: "/help" }
     ];
