@@ -1,10 +1,14 @@
 import {
     useWeb3ModalTheme,
     createWeb3Modal,
+    useWeb3ModalAccount,
     defaultConfig,
 } from 'web3modal-web3js/react';
+import { useEffect } from 'react';
+import { useAuth } from '../context/AuthContext';
 
 const projectId = '76804fd6127cc3b85f7d749c4e53700f';
+
 
 
 const chains = [
@@ -34,7 +38,7 @@ createWeb3Modal({
     chains,
     projectId,
     enableAnalytics: true,
-    themeMode: 'light',
+    themeMode: 'dark',
     themeVariables: {
         '--w3m-color-mix': '#00DCFF',
         '--w3m-color-mix-strength': 20,
@@ -42,8 +46,18 @@ createWeb3Modal({
 });
 
 export default function ConnectButton() {
-    const { themeMode, setThemeMode } = useWeb3ModalTheme();
-    setThemeMode('dark');
+    useWeb3ModalTheme();
+    const { address } = useWeb3ModalAccount();
+    const { setWalletAddress } = useAuth();
+
+    useEffect(() => {
+        if (address) {
+            setWalletAddress(address);
+        }
+    }, [address, setWalletAddress]);
+
+
+
 
     return (
         <>

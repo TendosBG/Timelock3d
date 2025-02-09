@@ -1,12 +1,13 @@
-import LeftSidebar from "./components/LeftSideBar.tsx";
-import RightSidebar from "./components/RightSideBar.tsx";
-import PromptToRequest from "./components/PromptToRequest.tsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import LeftSidebar from "./components/LeftSidebar";
+import RightSidebar from "./components/RightSideBar";
+import { AuthProvider } from "./context/AuthContext";
+import { useState } from "react";
 
 
-import React, { useState } from "react";
-
-
-const MainPage: React.FC = () => {
+function App() {
   const [auctions, setAuctions] = useState([
     { image: "image-url-1", sellerName: "Alice", currentBid: 2.5 },
     { image: "image-url-2", sellerName: "Bob", currentBid: 3.1 },
@@ -16,24 +17,31 @@ const MainPage: React.FC = () => {
   ]);
 
   const handleBid = (index: number) => {
-    // Logic to update the auction bid, maybe call a smart contract or local state update
     const newAuctions = [...auctions];
     newAuctions[index].currentBid += 0.1;
     setAuctions(newAuctions);
   };
 
   return (
-    <>
+    <AuthProvider>
+      <BrowserRouter>
         <div className="main-layout">
-            <RightSidebar auctions={auctions} onBid={handleBid}/>
-                <div className="verticalSection"> 
-                    <PromptToRequest />
-                    <div className="divider"/>
-                </div>
-            <LeftSidebar />
-        </div>
-    </> 
-  );
-};
 
-export default MainPage;
+          <LeftSidebar />
+          
+          <div className="content-area">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/settings" element={<Home />} />
+            </Routes>
+          </div>
+
+          <RightSidebar auctions={auctions} onBid={handleBid} />
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
+  );
+}
+
+export default App;

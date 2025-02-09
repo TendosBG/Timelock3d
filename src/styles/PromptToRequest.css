@@ -10,7 +10,7 @@
 
     /* Center Horizontally & Vertically */
     position: absolute;
-    top: 30%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

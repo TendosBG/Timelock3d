@@ -14,17 +14,7 @@ html, body, #root {
   background-color: #454444;
 }
 
-body {
-  
-  background-color: #454444;
-  
 
-}
-
-.main-layout{
-  flex-direction: row;
-  background-color: #454444;
-}
 
 .logo {
   height: 6em;
@@ -72,3 +62,14 @@ body {
 }
 
 
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content-area {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
