@@ -4,7 +4,7 @@ import "../styles/Bidbar.css";
 
 interface RightSidebarProps {
   auctions: {
-    image: string;
+    image: "string";
     sellerName: string;
     currentBid: number;
   }[];

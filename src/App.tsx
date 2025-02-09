@@ -5,13 +5,14 @@ import LeftSidebar from "./components/LeftSidebar";
 import RightSidebar from "./components/RightSideBar";
 import { AuthProvider } from "./context/AuthContext";
 import { useState } from "react";
+import Marketplace from "./pages/Marketplace.tsx";
 
 function App() {
   const [auctions, setAuctions] = useState([
-    { image: "image-url-1", sellerName: "Alice", currentBid: 2.5 },
-    { image: "image-url-2", sellerName: "Bob", currentBid: 3.1 },
-    { image: "image-url-1", sellerName: "Alice", currentBid: 2.5 },
-    { image: "image-url-2", sellerName: "Bob", currentBid: 3.1 },
+    { image: "https://dummyimage.com/300x300/000000/ffd900&text=I'm+a+NFT+:)", sellerName: "Alice", currentBid: 2.5 },
+    { image: "https://dummyimage.com/300x300/000000/ffd900&text=I'm+a+NFT+:)", sellerName: "Bob", currentBid: 3.1 },
+    { image: "https://dummyimage.com/300x300/000000/ffd900&text=I'm+a+NFT+:)", sellerName: "Alice", currentBid: 2.5 },
+    { image: "https://dummyimage.com/300x300/000000/ffd900&text=I'm+a+NFT+:)", sellerName: "Bob", currentBid: 3.1 },
   ]);
 
   const handleBid = (index: number) => {
@@ -31,6 +32,7 @@ function App() {
               <Route path="/" element={<Feed />} /> 
               <Route path="/profile" element={<Profile />} />
               <Route path="/settings" element={<Profile />} />
+              <Route path="/marketplace" element={<Marketplace />} />
             </Routes>
           </div>
 
