@@ -1,0 +1,29 @@
+.tweet {
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.tweet h3 {
+    color: #FFD700;
+}
+
+.tweet-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.tweet-actions button {
+    background: none;
+    border: none;
+    color: #FFD700;
+    cursor: pointer;
+}
+
+.comments {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+}

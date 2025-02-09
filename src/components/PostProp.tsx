@@ -1,34 +1,32 @@
-import React, { useState } from "react";
-import "../styles/PostPropCSS.css"
+// components/Tweet.tsx
+import { useState } from "react";
+import { TweetType } from "./feed";
 
-interface AuctionItemProps {
-  image: string;
-  sellerName: string;
-  currentBid: number;
-  onBid: (newBid: number) => void;
+import "../styles/Tweet.css";
+
+interface TweetProps {
+  tweet: TweetType;
 }
 
-const AuctionItem: React.FC<AuctionItemProps> = ({ image, sellerName, currentBid, onBid }) => {
-  const [bidAmount, setBidAmount] = useState(currentBid);
+export default function Tweet({ tweet }: TweetProps) {
+  const [likes, setLikes] = useState(tweet.likes);
+  const [comments, setComments] = useState(tweet.comments);
 
-  const handleBid = () => {
-    setBidAmount((prevBid) => {
-      const newBid = prevBid + 0.1;
-      onBid(newBid); // Notify parent component of new bid
-      return newBid;
-    });
+  const addComment = (text: string) => {
+    setComments([...comments, text]);
   };
 
   return (
-    <div className="auction-item">
-      <img src={image} alt="NFT" className="auction-image" />
-      <div className="auction-details">
-        <h3>{sellerName}</h3>
-        <p>Current Bid: {bidAmount.toFixed(2)} ETH</p>
-        <button onClick={handleBid}>Bid Higher</button>
+    <div className="tweet">
+      <h3>{tweet.author}</h3>
+      <p>{tweet.content}</p>
+      <div className="tweet-actions">
+        <button onClick={() => setLikes(likes + 1)}>❤️ {likes}</button>
+        <span>💬 {comments.length}</span>
+      </div>
+      <div className="comments">
+        
       </div>
     </div>
   );
-};
-
-export default AuctionItem;
+}

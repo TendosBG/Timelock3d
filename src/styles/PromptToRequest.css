@@ -1,18 +1,15 @@
 /* Static box at the top, like Twitter’s Post Tweet */
 .request-box {
-    background: #181A1E;
+    background-color: #181A1E; 
     color: white;
     padding: 15px;
-    border-bottom: 1px solid #444;
+    
     width: 100%;
     max-width: 600px;
     border-radius: 8px;
 
     /* Center Horizontally & Vertically */
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    
 }
 
 /* Title */
@@ -28,7 +25,7 @@
     height: 80px;
     background-color: #222;
     color: white;
-    border: 1px solid #444;
+    background-color: #20232A;
     border-radius: 6px;
     padding: 10px;
     resize: none;
